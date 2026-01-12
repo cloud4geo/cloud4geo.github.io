@@ -1,0 +1,196 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "cases": "Casos de Éxito",
+    "process": "Proceso",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Líderes en Migración Geoespacial",
+    "title": "Migra tu GIS a la",
+    "titleHighlight": "Nube Libre",
+    "description": "15+ años de experiencia migrando infraestructuras ArcGIS hacia ecosistemas OpenStreetMap, PostGIS y Kubernetes.",
+    "cta": "Agenda Demo Gratis",
+    "secondary": "Ver Casos de Éxito",
+    "scroll": "Scroll"
+  },
+  "services": {
+    "title": "¿Qué Hacemos?",
+    "subtitle": "Transformamos tecnología geoespacial tradicional en soluciones modernas, abiertas y escalables.",
+    "migration": {
+      "title": "Migración ArcGIS → Libre",
+      "description": "Dejamos atrás las licencias costosas. Migramos tus geodatabases a PostGIS y tus servicios a GeoServer/MapProxy."
+    },
+    "infrastructure": {
+      "title": "Infra Geo en Kubernetes",
+      "description": "Despliegues escalables y resilientes. Orquestamos tu stack geoespacial con Kubernetes y Docker para máxima disponibilidad."
+    },
+    "collab": {
+      "title": "Mapas Colaborativos Realtime",
+      "description": "Plataformas interactivas donde múltiples usuarios editan y visualizan datos geográficos en tiempo real."
+    },
+    "learnMore": "Saber más"
+  },
+  "cases": {
+    "title": "Casos de Éxito",
+    "subtitle": "Impulsando proyectos globales con tecnología abierta.",
+    "items": {
+      "ohm": {
+        "title": "OpenHistoricalMap",
+        "category": "Infraestructura Completa",
+        "description": "Migración masiva y mantenimiento de la infraestructura global de mapas históricos."
+      },
+      "palestine": {
+        "title": "Palestine Maps",
+        "category": "Soberanía de Datos",
+        "description": "Plataforma independiente de mapeo para la documentación territorial."
+      },
+      "sandbox": {
+        "title": "SandBox OSM-US",
+        "category": "Entorno de Pruebas",
+        "description": "Desarrollo de entornos seguros para capacitación y pruebas de edición en OpenStreetMap."
+      },
+      "kendall": {
+        "title": "Kendall County GIS",
+        "category": "Gobierno Local",
+        "description": "Modernización del sistema GIS del condado para mejorar el acceso público."
+      }
+    },
+    "viewDetails": "Ver Detalles"
+  },
+  "projects": {
+    "backToHome": "Volver al Inicio",
+    "challengeTitle": "El Desafío",
+    "solutionTitle": "Nuestra Solución",
+    "resultTitle": "Resultados Clave",
+    "projectInfo": "Info del Proyecto",
+    "client": "Cliente",
+    "services": "Servicios",
+    "year": "Año",
+    "interestedTitle": "¿Te interesan resultados similares?",
+    "interestedText": "Hablemos de cómo podemos aplicar estas soluciones a tu proyecto.",
+    "contactUs": "Contáctanos",
+    "visitWebsite": "Visitar Sitio Web",
+    "items": {
+      "ohm": {
+        "title": "OpenHistoricalMap",
+        "description": "La plataforma abierta más completa del mundo para mapas históricos.",
+        "challenge": "Antes de nuestra intervención, OHM luchaba por escalar su infraestructura para manejar millones de teselas vectoriales históricas y ediciones concurrentes. El sistema sufría caídas durante eventos de alto tráfico.",
+        "solution": "Re-arquitecturamos todo el stack usando Kubernetes, implementando un pipeline de generación de teselas vectoriales personalizado optimizado para datos históricos. Migramos la base de datos a un cluster PostGIS de alta disponibilidad.",
+        "results": {
+          "1": "99.9% de uptime durante mapatones globales",
+          "2": "50% de reducción en tiempo de renderizado",
+          "3": "Integración perfecta con JOSM y iD editor"
+        },
+        "client": "OpenHistoricalMap Foundation",
+        "services": "Infraestructura, Full Stack Dev",
+        "year": "2020 - Presente",
+        "website": "https://www.openhistoricalmap.org/"
+      },
+      "palestine": {
+        "title": "Palestine Open Maps",
+        "description": "Plataforma para visualizar y explorar mapas históricos de Palestina.",
+        "challenge": "El proyecto necesitaba digitalizar, georreferenciar y servir miles de mapas en papel históricos, haciéndolos accesibles y buscables junto con datos modernos, asegurando soberanía de datos.",
+        "solution": "Desarrollamos un visor de mapas personalizado usando MapLibre GL JS que permite superponer mapas históricos con opacidad ajustable. Construimos un backend robusto para gestionar activos georreferenciados.",
+        "results": {
+          "1": "Digitalización de más de 200 hojas de mapas",
+          "2": "Carga de mapas sub-segundo globalmente",
+          "3": "Búsqueda interactiva de lugares históricos"
+        },
+        "client": "Visualizing Palestine",
+        "services": "Mapeo Web, Procesamiento de Datos",
+        "year": "2018 - Presente",
+        "website": "https://data.palopenmaps.org"
+      },
+      "sandbox": {
+        "title": "SandBox OSM-US",
+        "description": "Un entorno seguro para capacitar a nuevos mapeadores de OpenStreetMap.",
+        "challenge": "OpenStreetMap US necesitaba una forma de capacitar a nuevos usuarios sin arriesgar vandalismo en la base de datos principal. Requerían una réplica aislada del stack de OSM.",
+        "solution": "Desplegamos una réplica completa contenerizada de la API de OpenStreetMap y el stack de renderizado. Implementamos scripts automatizados para reiniciar la base de datos periódicamente.",
+        "results": {
+          "1": "Entorno seguro para 1000+ usuarios",
+          "2": "Reinicios diarios automatizados",
+          "3": "Experiencia idéntica al sitio principal de OSM"
+        },
+        "client": "OpenStreetMap US",
+        "services": "DevOps, Arquitectura Cloud",
+        "year": "2022 - Presente",
+        "website": "https://dashboard.osmsandbox.us"
+      },
+      "kendall": {
+        "title": "Kendall County GIS",
+        "description": "Modernización del acceso a datos GIS del gobierno local.",
+        "challenge": "Los datos GIS del condado estaban atrapados en formatos propietarios y accesibles solo a través de visores lentos. Ciudadanos y empresas luchaban por acceder a la información.",
+        "solution": "Migramos sus datasets principales a PostGIS. Construimos un portal web moderno y responsivo usando React y MapLibre que permite a los ciudadanos buscar parcelas y ver zonificación.",
+        "results": {
+          "1": "Acceso público a datos aumentó un 300%",
+          "2": "Interfaz amigable para móviles",
+          "3": "Ahorro significativo en licencias de software"
+        },
+        "client": "Kendall County",
+        "services": "Migración, Desarrollo Web",
+        "year": "2023",
+        "website": "https://maramech.kendallcountyil.gov"
+      }
+    }
+  },
+  "process": {
+    "title": "Cómo Trabajamos",
+    "subtitle": "Un proceso claro y estructurado para tu transformación digital.",
+    "steps": {
+      "diagnosis": {
+        "title": "Diagnóstico ArcGIS",
+        "description": "Analizamos tu infraestructura actual, dependencias y licenciamiento para diseñar la estrategia de migración más eficiente."
+      },
+      "migration": {
+        "title": "Migración de Datos",
+        "description": "Transferimos tus datos a PostGIS y OpenStreetMap, asegurando integridad topológica y optimización de consultas."
+      },
+      "development": {
+        "title": "Desarrollo Web",
+        "description": "Construimos interfaces modernas y rápidas utilizando React, MapLibre, y componentes reutilizables."
+      },
+      "deployment": {
+        "title": "Despliegue K8s",
+        "description": "Puesta en producción sobre Kubernetes para garantizar escalabilidad automática y alta disponibilidad."
+      }
+    }
+  },
+  "contact": {
+    "title": "Hablemos de tu Proyecto",
+    "description": "¿Listo para modernizar tu infraestructura geoespacial? Cuéntanos tus retos y encontremos la mejor solución.",
+    "directEmail": "Email Directo",
+    "sending": "Enviando...",
+    "send": "Enviar Consulta",
+    "success": "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa",
+      "project": "Proyecto GIS Actual",
+      "message": "Mensaje",
+      "placeholders": {
+        "name": "Tu nombre",
+        "email": "nombre@empresa.com",
+        "company": "Nombre de tu organización",
+        "project": "Ej: Migración de ArcGIS Enterprise",
+        "message": "Cuéntanos más detalles..."
+      },
+      "errors": {
+        "name": "El nombre debe tener al menos 2 caracteres",
+        "email": "Email inválido",
+        "company": "La empresa es requerida",
+        "project": "Describa brevemente su proyecto",
+        "message": "El mensaje debe tener al menos 10 caracteres"
+      }
+    }
+  },
+  "footer": {
+    "description": "Cloud for Geo - Infraestructura en la nube confiable para aplicaciones geoespaciales",
+    "rights": "Todos los derechos reservados",
+    "quickLinks": "Enlaces Rápidos",
+    "location": "Ubicación",
+    "servingClients": "Sirviendo a clientes globalmente"
+  }
+}
