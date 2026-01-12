@@ -1,13 +1,28 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+const defaultLocale = 'en';
+
+// Helper to get localized path
+// With localePrefix: 'as-needed', English uses root path, Spanish uses /es/
+function getLocalizedPath(path: string, locale: string): string {
+  if (locale === defaultLocale) {
+    // English: serve at root without prefix
+    return path;
+  }
+  // Spanish: add /es/ prefix
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `/${locale}${cleanPath ? '/' + cleanPath : ''}`;
+}
+
 export default function ProjectPage({ params: { slug } }: { params: { slug: string } }) {
   const t = useTranslations('projects');
+  const locale = useLocale();
   
   // Verify if project exists by checking if valid translation key exists
   // In a real app we might validate against a list of valid slugs
@@ -41,7 +56,7 @@ export default function ProjectPage({ params: { slug } }: { params: { slug: stri
         <div className="absolute bottom-0 left-0 z-20 w-full p-8 md:p-16">
           <div className="container mx-auto">
             <Link 
-              href="/" 
+              href={getLocalizedPath('/', locale)} 
               className="mb-6 inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -129,7 +144,7 @@ export default function ProjectPage({ params: { slug } }: { params: { slug: stri
               <h3 className="mb-3 text-xl font-bold">{t('interestedTitle')}</h3>
               <p className="mb-6 text-blue-100">{t('interestedText')}</p>
               <Link 
-                href="/#contact"
+                href={getLocalizedPath('/#contact', locale)}
                 className="inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-3 font-semibold text-blue-600 transition-colors hover:bg-blue-50"
               >
                 {t('contactUs')}

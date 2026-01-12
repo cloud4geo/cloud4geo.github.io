@@ -3,6 +3,20 @@
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
+const defaultLocale = 'en';
+
+// Helper to get localized path
+// With localePrefix: 'as-needed', English uses root path, Spanish uses /es/
+function getLocalizedPath(path: string, locale: string): string {
+  if (locale === defaultLocale) {
+    // English: serve at root without prefix
+    return path;
+  }
+  // Spanish: add /es/ prefix
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `/${locale}${cleanPath ? '/' + cleanPath : ''}`;
+}
+
 export default function Footer() {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
@@ -30,18 +44,17 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">{t('quickLinks')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href={`/${locale}#services`} className="hover:text-primary-400 transition-colors">
+                <Link href={getLocalizedPath('/#services', locale)} className="hover:text-primary-400 transition-colors">
                   {tNav('services')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}#cases`} className="hover:text-primary-400 transition-colors">
+                <Link href={getLocalizedPath('/#cases', locale)} className="hover:text-primary-400 transition-colors">
                   {tNav('cases')}
                 </Link>
               </li>
-
               <li>
-                <Link href={`/${locale}#contact`} className="hover:text-primary-400 transition-colors">
+                <Link href={getLocalizedPath('/#contact', locale)} className="hover:text-primary-400 transition-colors">
                   {tNav('contact')}
                 </Link>
               </li>

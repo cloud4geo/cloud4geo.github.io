@@ -6,6 +6,20 @@ import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
 
+const defaultLocale = 'en';
+
+// Helper to get localized path
+// With localePrefix: 'as-needed', English uses root path, Spanish uses /es/
+function getLocalizedPath(path: string, locale: string): string {
+  if (locale === defaultLocale) {
+    // English: serve at root without prefix
+    return path;
+  }
+  // Spanish: add /es/ prefix
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `/${locale}${cleanPath ? '/' + cleanPath : ''}`;
+}
+
 export default function Header() {
   const t = useTranslations('nav');
   const locale = useLocale();
@@ -13,19 +27,18 @@ export default function Header() {
   const router = useRouter();
 
   const navItems = [
-    { key: 'home', href: `/${locale}` },
-    { key: 'services', href: `/${locale}#services` },
-    { key: 'cases', href: `/${locale}#cases` },
-    { key: 'process', href: `/${locale}#process` },
-
-    { key: 'contact', href: `/${locale}#contact` },
+    { key: 'home', href: getLocalizedPath('/', locale) },
+    { key: 'services', href: getLocalizedPath('/#services', locale) },
+    { key: 'cases', href: getLocalizedPath('/#cases', locale) },
+    { key: 'process', href: getLocalizedPath('/#process', locale) },
+    { key: 'contact', href: getLocalizedPath('/#contact', locale) },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href={`/${locale}`} className="flex items-center space-x-2">
+          <Link href={getLocalizedPath('/', locale)} className="flex items-center space-x-2">
             <div className="flex items-center">
               <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

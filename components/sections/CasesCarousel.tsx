@@ -3,11 +3,26 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+
+const defaultLocale = 'en';
+
+// Helper to get localized path
+// With localePrefix: 'as-needed', English uses root path, Spanish uses /es/
+function getLocalizedPath(path: string, locale: string): string {
+  if (locale === defaultLocale) {
+    // English: serve at root without prefix
+    return path;
+  }
+  // Spanish: add /es/ prefix
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `/${locale}${cleanPath ? '/' + cleanPath : ''}`;
+}
 
 export default function CasesCarousel() {
   const t = useTranslations('cases');
+  const locale = useLocale();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const cases = [
@@ -90,7 +105,7 @@ export default function CasesCarousel() {
               transition={{ delay: index * 0.1 }}
               className="min-w-[85vw] snap-center rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden md:min-w-[400px]"
             >
-              <Link href={`/projects/${item.slug}`} className="block h-full transition-colors hover:border-slate-700">
+              <Link href={getLocalizedPath(`/projects/${item.slug}`, locale)} className="block h-full transition-colors hover:border-slate-700">
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply" />
                   <img 

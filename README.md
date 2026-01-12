@@ -46,15 +46,23 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Building for Production
+### Building for Production (Static Export)
 
 To build the static site:
 
 ```bash
+yarn build
+# or
 npm run build
 ```
 
 The static files will be generated in the `out` directory, ready for deployment to any static hosting service.
+
+**Important**: This site is configured for static export. All routes are pre-rendered at build time:
+- `/en` - English version
+- `/es` - Spanish version
+- `/en/projects/[slug]` - Project pages in English
+- `/es/projects/[slug]` - Project pages in Spanish
 
 ## Deployment
 
