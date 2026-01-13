@@ -7,10 +7,10 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Leaders in Geospatial Migration",
+    "badge": "Modernize your GIS. Move from ArcGIS to an open infrastructure with PostGIS, OpenStreetMap, and Kubernetes/Docker to scale without limits.",
     "title": "Migrate your GIS to the",
     "titleHighlight": "Open Cloud",
-    "description": "15+ years of experience migrating ArcGIS infrastructures to OpenStreetMap, PostGIS, and Kubernetes ecosystems.",
+    "description": "Stop paying expensive licenses. Migrate your GIS to a free cloud with total flexibility and customization.",
     "cta": "Schedule Free Demo",
     "secondary": "View Success Stories",
     "scroll": "Scroll"
@@ -18,19 +18,170 @@
   "services": {
     "title": "What We Do?",
     "subtitle": "Transforming traditional geospatial technology into modern, open, and scalable solutions.",
+    "backToServices": "Back to Services",
     "migration": {
       "title": "ArcGIS → Open Migration",
-      "description": "Leave expensive licenses behind. We migrate your geodatabases to PostGIS and your services to GeoServer/MapProxy."
+      "description": "Leave expensive licenses behind. We migrate your geodatabases to PostGIS and your services to GeoServer/MapProxy.",
+      "slug": "migration",
+      "heroTitle": "ArcGIS to Open Infrastructure Migration",
+      "heroDescription": "Free your organization from expensive ArcGIS licenses and migrate to a completely open and customizable geospatial infrastructure.",
+      "overview": {
+        "title": "Why migrate?",
+        "content": "ArcGIS licenses can cost tens of thousands of dollars annually. With our migration to open technologies, you eliminate these recurring costs while gaining greater flexibility and control over your infrastructure."
+      },
+      "whatWeDo": {
+        "title": "What we do",
+        "items": {
+          "1": "Complete analysis of your current ArcGIS infrastructure",
+          "2": "Migration of geodatabases to PostGIS with data and relationship preservation",
+          "3": "Conversion of map services to open standards (WMS, WMTS, WFS)",
+          "4": "Implementation of map servers: MartinGIS, Tegola, GeoServer or MapProxy according to your needs",
+          "5": "Migration of custom web applications to modern technologies",
+          "6": "Training your team on the new tools"
+        }
+      },
+      "benefits": {
+        "title": "Benefits",
+        "items": {
+          "1": "Cost savings: Elimination of expensive annual licenses",
+          "2": "Total flexibility: Customize and extend according to your needs",
+          "3": "Open standards: Compatibility with universal tools and formats",
+          "4": "No vendor lock-in: Full control over your infrastructure",
+          "5": "Active community: Access to a wide community of developers and resources"
+        }
+      },
+      "technologies": {
+        "title": "Technologies we use",
+        "items": {
+          "postgis": "PostGIS - Enterprise-class geospatial database",
+          "martingis": "MartinGIS - High-performance vector map server",
+          "tegola": "Tegola - Vector tile generator",
+          "geoserver": "GeoServer - Standard OGC map server",
+          "mapproxy": "MapProxy - Proxy and cache for map services"
+        }
+      },
+      "comparison": {
+        "title": "Comparison: ArcGIS vs Open-Source",
+        "subtitle": "See the difference between proprietary and open solutions",
+        "aspects": {
+          "cost": "Annual Cost",
+          "features": "Features",
+          "scalability": "Scalability",
+          "storage": "Storage",
+          "support": "Support/Migration"
+        },
+        "arcgis": {
+          "label": "ArcGIS (Proprietary)",
+          "cost": "S/1,400+ per user; thousands for teams",
+          "features": "Advanced analysis, 3D, official support",
+          "scalability": "Limited by licenses",
+          "storage": "Vendor-lock; Esri cloud",
+          "support": "Paid helpdesk; high learning curve for changes"
+        },
+        "opensource": {
+          "label": "OSM/QGIS + Cloud (Open-Source)",
+          "cost": "Free; hosting only ~S/100-500/month",
+          "features": "Editing, spatial analysis, web tiles; 95% coverage + extensive plugins",
+          "scalability": "Infinite in cloud (Kubernetes); updated collaborative OSM data",
+          "storage": "Own servers, AWS, Azure, GCP;  flexible and secure",
+          "support": "Dedicated expert support (15+ years migrations); training included"
+        }
+      }
     },
     "infrastructure": {
       "title": "Geo Infra on Kubernetes",
-      "description": "Scalable and resilient deployments. We orchestrate your geospatial stack with Kubernetes and Docker for maximum availability."
+      "description": "Scalable and resilient deployments. We orchestrate your geospatial stack with Kubernetes and Docker for maximum availability.",
+      "slug": "infrastructure",
+      "heroTitle": "Geospatial Infrastructure on Kubernetes",
+      "heroDescription": "Deploy and scale your geospatial infrastructure with Kubernetes and Docker. Maximum availability, automatic scaling, and simplified management.",
+      "overview": {
+        "title": "Modern and scalable infrastructure",
+        "content": "Kubernetes allows you to orchestrate your entire geospatial infrastructure efficiently. From PostGIS databases to map servers, everything is deployed and scaled automatically according to demand."
+      },
+      "whatWeDo": {
+        "title": "What we do",
+        "items": {
+          "1": "Kubernetes architecture design for your geospatial stack",
+          "2": "Containerization of services: PostGIS, GeoServer, MapProxy, etc.",
+          "3": "Auto-scaling configuration based on load",
+          "4": "High availability implementation with multiple replicas",
+          "5": "Persistent storage configuration for geospatial data",
+          "6": "Centralized monitoring and logging",
+          "7": "CI/CD pipelines for automated deployments"
+        }
+      },
+      "benefits": {
+        "title": "Benefits",
+        "items": {
+          "1": "Automatic scaling: Adjust resources according to demand",
+          "2": "High availability: Zero downtime",
+          "3": "Simplified management: One system for all infrastructure",
+          "4": "Optimized costs: Pay only for resources you use",
+          "5": "Zero-downtime deployments: Updates without interruption",
+          "6": "Portability: Works on any cloud or on-premise"
+        }
+      },
+      "technologies": {
+        "title": "Technology stack",
+        "items": {
+          "kubernetes": "Kubernetes - Container orchestration",
+          "docker": "Docker - Application containerization",
+          "helm": "Helm - Kubernetes package management",
+          "prometheus": "Prometheus - Monitoring and alerts",
+          "grafana": "Grafana - Metrics visualization"
+        }
+      }
     },
     "collab": {
       "title": "Realtime Collaborative Maps",
-      "description": "Interactive platforms where multiple users edit and visualize geographic data in real-time."
+      "description": "Interactive platforms where multiple users edit and visualize geographic data in real-time.",
+      "slug": "collab",
+      "heroTitle": "Real-time Collaborative Maps",
+      "heroDescription": "Interactive platforms where multiple users can edit, visualize, and collaborate on geographic data simultaneously.",
+      "overview": {
+        "title": "Real-time collaboration",
+        "content": "Allow multiple users to work simultaneously on the same map, editing features, adding annotations, and viewing changes in real-time. Ideal for distributed teams and collaborative projects."
+      },
+      "whatWeDo": {
+        "title": "What we do",
+        "items": {
+          "1": "Development of interactive web interfaces with MapLibre GL",
+          "2": "Real-time synchronization implementation (WebSockets)",
+          "3": "Conflict system and resolution of concurrent edits",
+          "4": "Change history and data versioning",
+          "5": "Access control and permissions per user",
+          "6": "Integration with OpenStreetMap or custom databases",
+          "7": "RESTful APIs for integration with other systems"
+        }
+      },
+      "benefits": {
+        "title": "Benefits",
+        "items": {
+          "1": "Efficient collaboration: Multiple users working simultaneously",
+          "2": "Real-time: See changes instantly",
+          "3": "Reduced conflicts: Intelligent resolution system",
+          "4": "Complete traceability: History of all edits",
+          "5": "Scalable: Supports from small teams to large communities",
+          "6": "Customizable: Adapted to your specific workflows"
+        }
+      },
+      "technologies": {
+        "title": "Technologies",
+        "items": {
+          "maplibre": "MapLibre GL - Vector map rendering",
+          "websockets": "WebSockets - Real-time communication",
+          "postgis": "PostGIS - Geospatial storage",
+          "react": "React - Modern user interfaces",
+          "nodejs": "Node.js - Real-time backend"
+        }
+      }
     },
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "page": {
+      "interestedTitle": "Interested in this service?",
+      "interestedText": "Let's talk about how we can help with your project.",
+      "contactUs": "Contact Us"
+    }
   },
   "cases": {
     "title": "Success Stories",

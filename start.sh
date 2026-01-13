@@ -3,8 +3,15 @@
 # CloudFront Distribution ID
 export CLOUDFRONT_DISTRIBUTION_ID='E34BMKTGLEPBJY'
 
-# Default environment to development if not set
-export ENVIRONMENT=${ENVIRONMENT:-development}
+# Get environment from command line argument or environment variable, default to development
+if [ "$1" == "production" ]; then
+    export ENVIRONMENT="production"
+elif [ -n "$ENVIRONMENT" ]; then
+    # Use existing ENVIRONMENT variable if set
+    export ENVIRONMENT="$ENVIRONMENT"
+else
+    export ENVIRONMENT="development"
+fi
 
 # Default port to 3008 if not set
 export PORT=${PORT:-3008}
@@ -45,6 +52,34 @@ else
         --distribution-id=$CLOUDFRONT_DISTRIBUTION_ID \
         --paths="/*"
     
-    echo "✅ Deployment complete!"
+    if [ $? -ne 0 ]; then
+        echo "⚠️  CloudFront invalidation failed, but continuing with GitHub Pages deploy..."
+    fi
+    
+    # Deploy to GitHub Pages using gh-pages package
+    echo "📦 Deploying to GitHub Pages..."
+    
+    # Check if gh-pages is installed
+    if ! yarn list --pattern gh-pages --depth=0 > /dev/null 2>&1; then
+        echo "📥 Installing gh-pages..."
+        yarn add -D gh-pages
+    fi
+    
+    # Check if we're in a git repository
+    if [ ! -d ".git" ]; then
+        echo "⚠️  Not a git repository. Skipping GitHub Pages deployment."
+        echo "✅ S3 deployment complete!"
+        exit 0
+    fi
+    
+    # Use gh-pages to deploy
+    if yarn deploy; then
+        echo "✅ GitHub Pages deployment complete!"
+    else
+        echo "❌ GitHub Pages deployment failed."
+        exit 1
+    fi
+    
+    echo "✅ All deployments complete!"
 fi
 

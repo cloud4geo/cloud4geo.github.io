@@ -24,9 +24,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <div className="mb-4 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm text-blue-400">
-            <Globe className="mr-2 h-4 w-4" />
-            <span>{t('badge')}</span>
+          <div className="mb-6 rounded-lg border border-blue-500/30 bg-blue-500/10 px-4 py-3 text-sm leading-relaxed text-blue-300 md:text-base">
+            <div className="flex items-start gap-2">
+              <Globe className="mt-0.5 h-5 w-5 shrink-0 text-blue-400" />
+              <span>{t('badge')}</span>
+            </div>
           </div>
           
           <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight md:text-7xl">

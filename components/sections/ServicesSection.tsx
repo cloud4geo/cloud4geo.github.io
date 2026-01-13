@@ -2,25 +2,40 @@
 
 import { motion } from 'framer-motion';
 import { Database, Server, Map as MapIcon, ArrowRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
+
+const defaultLocale = 'en';
+
+// Helper to get localized path
+function getLocalizedPath(path: string, locale: string): string {
+  if (locale === defaultLocale) {
+    return path;
+  }
+  return `/${locale}${path}`;
+}
 
 export default function ServicesSection() {
   const t = useTranslations('services');
+  const locale = useLocale();
 
   const services = [
     {
+      slug: 'migration',
       title: t('migration.title'),
       description: t('migration.description'),
       icon: Database,
       color: 'from-orange-400 to-pink-500'
     },
     {
+      slug: 'infrastructure',
       title: t('infrastructure.title'),
       description: t('infrastructure.description'),
       icon: Server,
       color: 'from-blue-400 to-indigo-500'
     },
     {
+      slug: 'collab',
       title: t('collab.title'),
       description: t('collab.description'),
       icon: MapIcon,
@@ -53,30 +68,34 @@ export default function ServicesSection() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((service, index) => (
-            <motion.div
+            <Link
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 p-8 transition-all hover:border-slate-700 hover:bg-slate-900"
+              href={getLocalizedPath(`/services/${service.slug}`, locale)}
+              className="group relative block overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 p-8 transition-all hover:border-slate-700 hover:bg-slate-900"
             >
-              <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.color} opacity-80 shadow-lg shadow-blue-500/10`}>
-                <service.icon className="h-7 w-7 text-white" />
-              </div>
-              
-              <h3 className="mb-4 text-2xl font-bold">{service.title}</h3>
-              <p className="mb-6 leading-relaxed text-slate-400">
-                {service.description}
-              </p>
-              
-              <div className="flex items-center text-sm font-semibold text-blue-400 transition-colors group-hover:text-blue-300">
-                {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+              >
+                <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.color} opacity-80 shadow-lg shadow-blue-500/10`}>
+                  <service.icon className="h-7 w-7 text-white" />
+                </div>
+                
+                <h3 className="mb-4 text-2xl font-bold">{service.title}</h3>
+                <p className="mb-6 leading-relaxed text-slate-400">
+                  {service.description}
+                </p>
+                
+                <div className="flex items-center text-sm font-semibold text-blue-400 transition-colors group-hover:text-blue-300">
+                  {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
 
-              {/* Hover Glow Effect */}
-              <div className={`absolute -right-4 -top-4 h-24 w-24 bg-gradient-to-br ${service.color} opacity-0 blur-3xl transition-opacity group-hover:opacity-10`} />
-            </motion.div>
+                {/* Hover Glow Effect */}
+                <div className={`absolute -right-4 -top-4 h-24 w-24 bg-gradient-to-br ${service.color} opacity-0 blur-3xl transition-opacity group-hover:opacity-10`} />
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
