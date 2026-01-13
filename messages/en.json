@@ -37,7 +37,8 @@
           "3": "Conversion of map services to open standards (WMS, WMTS, WFS)",
           "4": "Implementation of map servers: MartinGIS, Tegola, GeoServer or MapProxy according to your needs",
           "5": "Migration of custom web applications to modern technologies",
-          "6": "Training your team on the new tools"
+          "6": "Training your team on the new tools",
+          "7": "Ongoing support and maintenance for your new infrastructure"
         }
       },
       "benefits": {
@@ -47,7 +48,8 @@
           "2": "Total flexibility: Customize and extend according to your needs",
           "3": "Open standards: Compatibility with universal tools and formats",
           "4": "No vendor lock-in: Full control over your infrastructure",
-          "5": "Active community: Access to a wide community of developers and resources"
+          "5": "Active community: Access to a wide community of developers and resources",
+          "6": "Future-proof: Open-source technologies evolve with the community, ensuring long-term viability"
         }
       },
       "technologies": {
@@ -80,7 +82,7 @@
         },
         "opensource": {
           "label": "OSM/QGIS + Cloud (Open-Source)",
-          "cost": "Free; hosting only ~S/100-500/month",
+          "cost": "Free; hosting only",
           "features": "Editing, spatial analysis, web tiles; 95% coverage + extensive plugins",
           "scalability": "Infinite in cloud (Kubernetes); updated collaborative OSM data",
           "storage": "Own servers, AWS, Azure, GCP;  flexible and secure",

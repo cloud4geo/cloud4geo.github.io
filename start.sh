@@ -30,56 +30,7 @@ if [ "$ENVIRONMENT" == "development" ]; then
     yarn dev
 else
     # Production: Build and deploy
-    echo "🏗️  Building for production..."
-    yarn build
-    
-    if [ $? -ne 0 ]; then
-        echo "❌ Build failed. Aborting deployment."
-        exit 1
-    fi
-    
-    echo "📤 Deploying to S3..."
-    export AWS_PROFILE=kiara
-    aws s3 sync out/ s3://cloud4geo.com/ --delete
-    
-    if [ $? -ne 0 ]; then
-        echo "❌ S3 sync failed. Aborting CloudFront invalidation."
-        exit 1
-    fi
-    
-    echo "🔄 Invalidating CloudFront cache..."
-    aws cloudfront create-invalidation \
-        --distribution-id=$CLOUDFRONT_DISTRIBUTION_ID \
-        --paths="/*"
-    
-    if [ $? -ne 0 ]; then
-        echo "⚠️  CloudFront invalidation failed, but continuing with GitHub Pages deploy..."
-    fi
-    
-    # Deploy to GitHub Pages using gh-pages package
-    echo "📦 Deploying to GitHub Pages..."
-    
-    # Check if gh-pages is installed
-    if ! yarn list --pattern gh-pages --depth=0 > /dev/null 2>&1; then
-        echo "📥 Installing gh-pages..."
-        yarn add -D gh-pages
-    fi
-    
-    # Check if we're in a git repository
-    if [ ! -d ".git" ]; then
-        echo "⚠️  Not a git repository. Skipping GitHub Pages deployment."
-        echo "✅ S3 deployment complete!"
-        exit 0
-    fi
-    
-    # Use gh-pages to deploy
-    if yarn deploy; then
-        echo "✅ GitHub Pages deployment complete!"
-    else
-        echo "❌ GitHub Pages deployment failed."
-        exit 1
-    fi
-    
+    npm run deploy
     echo "✅ All deployments complete!"
 fi
 
