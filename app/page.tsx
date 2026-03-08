@@ -8,14 +8,16 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import CasesCarousel from '@/components/sections/CasesCarousel';
 import ProcessTimeline from '@/components/sections/ProcessTimeline';
 import ContactForm from '@/components/sections/ContactForm';
+import ProductsSection from '@/components/sections/ProductsSection';
+import ClientsBar from '@/components/sections/ClientsBar';
 
 // Root page serves English content directly (no locale prefix)
 export default async function RootPage() {
   const locale = 'en';
-  
+
   // Enable static rendering
   setRequestLocale(locale);
-  
+
   const messages = await getMessages({ locale });
 
   return (
@@ -23,9 +25,11 @@ export default async function RootPage() {
       <Header />
       <main className="min-h-screen">
         <HeroSection />
+        <ClientsBar />
         <ServicesSection />
         <CasesCarousel />
         <ProcessTimeline />
+        <ProductsSection />
         <ContactForm />
       </main>
       <Footer />

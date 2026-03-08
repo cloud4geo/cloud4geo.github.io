@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# CloudFront Distribution ID
-export CLOUDFRONT_DISTRIBUTION_ID='E34BMKTGLEPBJY'
-
 # Get environment from command line argument or environment variable, default to development
 if [ "$1" == "production" ]; then
     export ENVIRONMENT="production"

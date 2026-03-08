@@ -4,6 +4,8 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import CasesCarousel from '@/components/sections/CasesCarousel';
 import ProcessTimeline from '@/components/sections/ProcessTimeline';
 import ContactForm from '@/components/sections/ContactForm';
+import ProductsSection from '@/components/sections/ProductsSection';
+import ClientsBar from '@/components/sections/ClientsBar';
 
 export default function HomePage({
   params: { locale }
@@ -16,9 +18,11 @@ export default function HomePage({
   return (
     <>
       <HeroSection />
+      <ClientsBar />
       <ServicesSection />
       <CasesCarousel />
       <ProcessTimeline />
+      <ProductsSection />
       <ContactForm />
     </>
   );

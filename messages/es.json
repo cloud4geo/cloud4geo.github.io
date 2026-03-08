@@ -4,14 +4,15 @@
     "services": "Servicios",
     "cases": "Casos de Éxito",
     "process": "Proceso",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "products": "Productos"
   },
   "hero": {
-    "badge": "Moderniza tu SIG. Pasa de ArcGIS a una infraestructura abierta con PostGIS, OpenStreetMap y Kubernetes/Docker para escalar sin límites.",
-    "title": "Migra tu SIG a la",
-    "titleHighlight": "Nube Libre",
-    "description": "Deja de pagar licencias caras. Migra tu SIG a una nube libre con total flexibilidad y personalización.",
-    "cta": "Agenda Demo Gratis",
+    "badge": "Todo lo que hace ArcGIS. Sin pagar licencias. Edición, tiles, análisis y más — 100% open-source.",
+    "title": "Todo lo que hace ArcGIS.",
+    "titleHighlight": "Sin pagar licencias.",
+    "description": "Una plataforma GIS libre con edición en tiempo real, tiles vectoriales, análisis espacial, compatible con todos los formatos y respaldada por la comunidad open-source más grande del mundo.",
+    "cta": "Agenda una llamada de 15 min",
     "secondary": "Ver Casos de Éxito",
     "scroll": "Scroll"
   },
@@ -339,11 +340,32 @@
       }
     }
   },
+  "products": {
+    "title": "Nuestros Productos",
+    "subtitle": "Herramientas que construimos para resolver problemas reales.",
+    "visitSite": "Visitar Sitio",
+    "lotespro": {
+      "name": "LotesPro",
+      "description": "Una plataforma integral de gestión de lotes y terrenos para desarrolladores inmobiliarios. Visualiza parcelas en mapas interactivos, gestiona pipelines de ventas, rastrea disponibilidad de lotes y genera reportes — todo en un solo lugar.",
+      "tags": "Inmobiliaria, Mapas, Gestión"
+    },
+    "savepics": {
+      "name": "SavePics",
+      "description": "Tus fotos, tu nube. Una hermosa galería conectada a tu propia cuenta de Cloudflare R2. Almacenamiento ilimitado, privacidad total — todo es tuyo. Gratis hasta 10 GB.",
+      "tags": "Fotos, Almacenamiento, Privacidad"
+    }
+  },
+  "clientsBar": {
+    "trustedBy": "Confianza de equipos en todo el mundo"
+  },
   "footer": {
     "description": "Cloud for Geo - Infraestructura en la nube confiable para aplicaciones geoespaciales",
     "rights": "Todos los derechos reservados",
     "quickLinks": "Enlaces Rápidos",
+    "products": "Productos",
     "location": "Ubicación",
-    "servingClients": "Sirviendo a clientes globalmente"
+    "servingClients": "Sirviendo a clientes globalmente",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
   }
 }

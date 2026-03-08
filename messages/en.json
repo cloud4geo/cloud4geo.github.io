@@ -4,14 +4,15 @@
     "services": "Services",
     "cases": "Success Stories",
     "process": "Process",
-    "contact": "Contact"
+    "contact": "Contact",
+    "products": "Products"
   },
   "hero": {
-    "badge": "Modernize your GIS. Move from ArcGIS to an open infrastructure with PostGIS, OpenStreetMap, and Kubernetes/Docker to scale without limits.",
-    "title": "Migrate your GIS to the",
-    "titleHighlight": "Open Cloud",
-    "description": "Stop paying expensive licenses. Migrate your GIS to a free cloud with total flexibility and customization.",
-    "cta": "Schedule Free Demo",
+    "badge": "Everything ArcGIS does. Without paying licenses. Editing, tiles, analysis and more — 100% open-source.",
+    "title": "Everything ArcGIS does.",
+    "titleHighlight": "Without paying licenses.",
+    "description": "An open GIS platform with real-time editing, vector tiles, spatial analysis, compatible with all formats and backed by the world's largest open-source community.",
+    "cta": "Book a 15-min Call",
     "secondary": "View Success Stories",
     "scroll": "Scroll"
   },
@@ -339,11 +340,32 @@
       }
     }
   },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Tools we build to solve real-world problems.",
+    "visitSite": "Visit Site",
+    "lotespro": {
+      "name": "LotesPro",
+      "description": "A comprehensive land and lot management platform for real estate developers. Visualize parcels on interactive maps, manage sales pipelines, track lot availability, and generate reports — all in one place.",
+      "tags": "Real Estate, Maps, Management"
+    },
+    "savepics": {
+      "name": "SavePics",
+      "description": "Your photos, your cloud. A beautiful gallery connected to your own Cloudflare R2 account. Unlimited storage, total privacy — everything is yours. Free up to 10 GB.",
+      "tags": "Photos, Cloud Storage, Privacy"
+    }
+  },
+  "clientsBar": {
+    "trustedBy": "Trusted by teams worldwide"
+  },
   "footer": {
     "description": "Cloud for Geo - Reliable cloud infrastructure for geospatial applications",
     "rights": "All rights reserved",
     "quickLinks": "Quick Links",
+    "products": "Products",
     "location": "Location",
-    "servingClients": "Serving clients globally"
+    "servingClients": "Serving clients globally",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   }
 }

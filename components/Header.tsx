@@ -31,6 +31,7 @@ export default function Header() {
     { key: 'services', href: getLocalizedPath('/#services', locale) },
     { key: 'cases', href: getLocalizedPath('/#cases', locale) },
     { key: 'process', href: getLocalizedPath('/#process', locale) },
+    { key: 'products', href: getLocalizedPath('/#products', locale) },
     { key: 'contact', href: getLocalizedPath('/#contact', locale) },
   ];
 
@@ -76,7 +77,6 @@ export default function Header() {
 
 function MobileMenu({ navItems, t }: { navItems: any[]; t: any }) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const locale = useLocale();
 
   return (
     <>
