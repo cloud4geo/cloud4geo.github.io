@@ -16,14 +16,15 @@ export default function ContactForm() {
 
     try {
       await emailjs.sendForm(
-        'service_53r9ru5',
-        'template_3x9lpo9',
+        'service_c59ak5q',
+        'template_os0ucvq',
         e.currentTarget,
         '8gcXTWpg5UPKbA483'
       );
       setStatus('success');
       formRef.current?.reset();
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err);
       setStatus('error');
     }
   }
