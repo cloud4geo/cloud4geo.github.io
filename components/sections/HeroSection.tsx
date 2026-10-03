@@ -52,7 +52,7 @@ export default function HeroSection() {
             </Link>
             
             <Link 
-              href="#cases"
+              href="#ai"
               className="inline-flex items-center justify-center rounded-lg border border-slate-700 bg-slate-800/50 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all hover:bg-slate-800 hover:text-blue-400"
             >
               {t('secondary')}

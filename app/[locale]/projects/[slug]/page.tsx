@@ -26,7 +26,9 @@ export default function ProjectPage({ params: { slug } }: { params: { slug: stri
   
   // Verify if project exists by checking if valid translation key exists
   // In a real app we might validate against a list of valid slugs
-  const validProjects = ['ohm', 'palestine', 'sandbox', 'kendall'];
+  const validProjects = ['ohm', 'palestine', 'sandbox', 'kendall', 'deforestation', 'terrain-rl', 'plate-detection', 'spark-emr', 'savepics-ai'];
+  // Projects without a public website or demo
+  const noWebsite = ['terrain-rl', 'plate-detection', 'spark-emr'];
   if (!validProjects.includes(slug)) {
     notFound();
   }
@@ -38,6 +40,11 @@ export default function ProjectPage({ params: { slug } }: { params: { slug: stri
       palestine: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80',
       sandbox: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
       kendall: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
+      deforestation: '/images/ai/deforestation.jpg',
+      'terrain-rl': '/images/ai/terrain-rl.jpg',
+      'plate-detection': '/images/ai/plate-detection.jpg',
+      'spark-emr': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80',
+      'savepics-ai': '/images/savepics.jpg',
     };
     return images[slug] || '';
   };
@@ -126,6 +133,7 @@ export default function ProjectPage({ params: { slug } }: { params: { slug: stri
                   <div className="text-sm text-slate-500">{t('year')}</div>
                   <div className="font-medium text-slate-300">{t(`items.${slug}.year`)}</div>
                 </div>
+                {!noWebsite.includes(slug) && (
                 <div className="pt-4">
                   <a
                     href={t(`items.${slug}.website`)}
@@ -137,6 +145,7 @@ export default function ProjectPage({ params: { slug } }: { params: { slug: stri
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </div>
+                )}
               </div>
             </div>
 

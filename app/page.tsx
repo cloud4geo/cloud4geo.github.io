@@ -28,6 +28,7 @@ export default async function RootPage() {
         <ClientsBar />
         <ServicesSection />
         <CasesCarousel />
+        <CasesCarousel variant="ai" />
         <ProcessTimeline />
         <ProductsSection />
         <ContactForm />

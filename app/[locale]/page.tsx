@@ -21,6 +21,7 @@ export default function HomePage({
       <ClientsBar />
       <ServicesSection />
       <CasesCarousel />
+      <CasesCarousel variant="ai" />
       <ProcessTimeline />
       <ProductsSection />
       <ContactForm />

@@ -5,15 +5,16 @@
     "cases": "Casos de Éxito",
     "process": "Proceso",
     "contact": "Contacto",
-    "products": "Productos"
+    "products": "Productos",
+    "ai": "IA y ML"
   },
   "hero": {
-    "badge": "Todo lo que hace ArcGIS. Sin pagar licencias. Edición, tiles, análisis y más — 100% open-source.",
-    "title": "Todo lo que hace ArcGIS.",
-    "titleHighlight": "Sin pagar licencias.",
-    "description": "Una plataforma GIS libre con edición en tiempo real, tiles vectoriales, análisis espacial, compatible con todos los formatos y respaldada por la comunidad open-source más grande del mundo.",
+    "badge": "GIS libre e IA para datos geoespaciales. Construimos mapas, infraestructura cloud y modelos de machine learning (ML) — sin pagar licencias.",
+    "title": "GIS de código abierto.",
+    "titleHighlight": "Ahora con IA y modelos de ML.",
+    "description": "Te migramos de ArcGIS a una plataforma GIS libre y entrenamos modelos de machine learning con tus datos: imágenes satelitales, detección de objetos y análisis predictivo.",
     "cta": "Agenda una llamada de 15 min",
-    "secondary": "Ver Casos de Éxito",
+    "secondary": "Ver Proyectos de IA",
     "scroll": "Scroll"
   },
   "services": {
@@ -213,6 +214,38 @@
     },
     "viewDetails": "Ver Detalles"
   },
+  "ai": {
+    "title": "IA y Machine Learning",
+    "subtitle": "Experimentos y soluciones de IA que construimos y medimos, listos para adaptar a tu organización.",
+    "items": {
+      "deforestation": {
+        "title": "Detección de Deforestación en Perú",
+        "category": "Imágenes Satelitales",
+        "description": "Un modelo U-Net que encuentra pérdida de bosque en la Amazonía peruana con pares de imágenes Sentinel-2."
+      },
+      "terrain-rl": {
+        "title": "Planificación de Rutas en Terreno Real",
+        "category": "Aprendizaje por Refuerzo",
+        "description": "Un agente que aprende rutas de baja pendiente en el volcán Misti con un modelo de elevación de 30 m."
+      },
+      "plate-detection": {
+        "title": "Detección y Lectura de Placas",
+        "category": "Visión por Computadora",
+        "description": "YOLOv11 detecta placas peruanas y un OCR lee los caracteres."
+      },
+      "spark-emr": {
+        "title": "ML a Escala con Spark en AWS",
+        "category": "Big Data y ML",
+        "description": "Modelos Spark MLlib sobre un clúster AWS EMR creado con Terraform."
+      },
+      "savepics-ai": {
+        "title": "SavePics: Reconocimiento Facial en el Navegador",
+        "category": "IA en el Navegador",
+        "description": "Detección de rostros y agrupación por persona que corre en el dispositivo del usuario, no en un servidor."
+      }
+    },
+    "viewDetails": "Ver Detalles"
+  },
   "projects": {
     "backToHome": "Volver al Inicio",
     "challengeTitle": "El Desafío",
@@ -286,6 +319,78 @@
         "services": "Migración, Desarrollo Web",
         "year": "2023",
         "website": "https://maramech.kendallcountyil.gov"
+      },
+      "deforestation": {
+        "title": "Detección de Deforestación en Perú",
+        "description": "Modelo de deep learning que mapea la pérdida de bosque en la Amazonía peruana con imágenes Sentinel-2.",
+        "challenge": "Las áreas deforestadas ocupan solo cerca del 2.9% de los píxeles de las imágenes, así que un modelo puede tener alta exactitud y aun así no detectar casi nada. Necesitábamos un modelo que encuentre claros pequeños comparando una imagen de antes con una de después.",
+        "solution": "Construimos el pipeline completo: descarga de Sentinel-2 por STAC, creación de máscaras a partir de 9,910 polígonos oficiales de SERFOR y una U-Net con encoder ResNet34 entrenada en PyTorch con 8 bandas (rojo, verde, azul e infrarrojo cercano, antes y después). Probamos 7 configuraciones, cambiando encoders, bandas NDVI y funciones de pérdida, y creamos una herramienta web para revisar y corregir las etiquetas.",
+        "results": {
+          "1": "IoU 0.413 y F1 0.584 en el conjunto de prueba",
+          "2": "1,039 pares de imágenes curados (727 entrenamiento, 156 validación, 156 prueba)",
+          "3": "Código público y herramienta web para revisar etiquetas"
+        },
+        "client": "Experimento de Cloud4Geo, listo para adaptar a tu organización",
+        "services": "Deep Learning, Teledetección",
+        "year": "2026",
+        "website": "https://deforestacion-peru.cloud4geo.com/"
+      },
+      "terrain-rl": {
+        "title": "Planificación de Rutas en Terreno Real",
+        "description": "Agente de aprendizaje por refuerzo que encuentra rutas de baja pendiente en el terreno real del volcán Misti.",
+        "challenge": "Encontrar una ruta caminable en terreno empinado normalmente se resuelve con reglas fijas. Queríamos un agente que aprenda la ruta por sí mismo a partir de datos de elevación, y medir qué tan cerca queda del camino óptimo.",
+        "solution": "Convertimos el Copernicus DEM (Modelo Digital de Elevación) GLO-30 del volcán Misti, en Arequipa, en un entorno de grilla donde las pendientes fuertes se penalizan. Entrenamos agentes Q-learning, DQN (Deep Q-Network), Double DQN y REINFORCE en PyTorch y los comparamos con Dijkstra.",
+        "results": {
+          "1": "DQN llega a una meta fija en el 100% de las pruebas",
+          "2": "Rutas solo 7.1% más costosas que el camino óptimo de Dijkstra",
+          "3": "DQN supera a REINFORCE: 100% vs 95% de éxito"
+        },
+        "client": "Experimento de Cloud4Geo, listo para adaptar a tu organización",
+        "services": "Aprendizaje por Refuerzo, Análisis de Terreno",
+        "year": "2026"
+      },
+      "plate-detection": {
+        "title": "Detección y Lectura de Placas",
+        "description": "Modelo YOLOv11 que detecta placas peruanas en fotos y video, con OCR para leerlas.",
+        "challenge": "Leer placas en tráfico real es difícil: son pequeñas, están inclinadas y muchas veces tapadas en parte. Necesitábamos un detector que funcione con fotos y video de calles peruanas.",
+        "solution": "Ajustamos YOLOv11 con imágenes etiquetadas de placas peruanas y agregamos OCR (Reconocimiento Óptico de Caracteres) con EasyOCR y Fast Plate OCR para leer los caracteres de cada placa detectada.",
+        "results": {
+          "1": "mAP50 de 0.986 en el conjunto de validación",
+          "2": "Precisión 0.93 y recall 0.976",
+          "3": "Funciona con imágenes y con video"
+        },
+        "client": "Experimento de Cloud4Geo, listo para adaptar a tu organización",
+        "services": "Detección de Objetos, OCR",
+        "year": "2026"
+      },
+      "spark-emr": {
+        "title": "ML a Escala con Spark en AWS",
+        "description": "Modelos Spark MLlib que predicen resultados de inspecciones de alimentos, sobre un clúster AWS EMR creado con Terraform.",
+        "challenge": "Entrenar modelos con tablas grandes requiere un clúster, y armarlo a mano es lento y difícil de repetir. Queríamos un entorno que cualquiera pueda crear y destruir con un comando.",
+        "solution": "Escribimos código Terraform que crea un clúster AWS EMR (Elastic MapReduce) con Spark, JupyterHub y almacenamiento en S3. Sobre él entrenamos modelos de Regresión Logística y Random Forest con Spark MLlib usando datos de inspecciones de alimentos de King County.",
+        "results": {
+          "1": "Regresión Logística: AUC 0.953 y F1 0.876",
+          "2": "Random Forest: AUC 0.940 y F1 0.882",
+          "3": "Clúster y almacenamiento definidos como código con Terraform"
+        },
+        "client": "Experimento de Cloud4Geo, listo para adaptar a tu organización",
+        "services": "Big Data, Infraestructura Cloud",
+        "year": "2026"
+      },
+      "savepics-ai": {
+        "title": "SavePics: Reconocimiento Facial en el Navegador",
+        "description": "Detección de rostros y agrupación por persona que corre por completo en el navegador, dentro de nuestro producto de fotos.",
+        "challenge": "Los usuarios de SavePics guardan sus fotos en su propia cuenta cloud. Enviar esas fotos a un servidor para reconocer rostros rompería esa promesa de privacidad.",
+        "solution": "Ejecutamos los modelos en el dispositivo del usuario con ONNX Runtime Web dentro de un Web Worker. SCRFD detecta los rostros, MobileFaceNet convierte cada rostro en un embedding de 512 dimensiones y la similitud coseno agrupa los rostros por persona.",
+        "results": {
+          "1": "Las fotos no salen del dispositivo para el análisis",
+          "2": "Los rostros se agrupan por persona automáticamente",
+          "3": "Sin servidores GPU que pagar ni mantener"
+        },
+        "client": "Producto de Cloud4Geo",
+        "services": "IA en el Dispositivo, Desarrollo Web",
+        "year": "2026",
+        "website": "https://savepics.app"
       }
     }
   },

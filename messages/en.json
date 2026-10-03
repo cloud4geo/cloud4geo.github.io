@@ -5,15 +5,16 @@
     "cases": "Success Stories",
     "process": "Process",
     "contact": "Contact",
-    "products": "Products"
+    "products": "Products",
+    "ai": "AI & ML"
   },
   "hero": {
-    "badge": "Everything ArcGIS does. Without paying licenses. Editing, tiles, analysis and more — 100% open-source.",
-    "title": "Everything ArcGIS does.",
-    "titleHighlight": "Without paying licenses.",
-    "description": "An open GIS platform with real-time editing, vector tiles, spatial analysis, compatible with all formats and backed by the world's largest open-source community.",
+    "badge": "Open-source GIS and AI for geospatial data. We build maps, cloud infrastructure and machine learning (ML) models — without license fees.",
+    "title": "Open-source GIS.",
+    "titleHighlight": "Now with AI and ML models.",
+    "description": "We migrate you from ArcGIS to an open GIS platform and train machine learning models on your data: satellite imagery, object detection and predictive analysis.",
     "cta": "Book a 15-min Call",
-    "secondary": "View Success Stories",
+    "secondary": "View AI Projects",
     "scroll": "Scroll"
   },
   "services": {
@@ -213,6 +214,38 @@
     },
     "viewDetails": "View Details"
   },
+  "ai": {
+    "title": "AI & Machine Learning",
+    "subtitle": "AI experiments and solutions we built and measured, ready to adapt to your organization.",
+    "items": {
+      "deforestation": {
+        "title": "Deforestation Detection in Peru",
+        "category": "Satellite Imagery",
+        "description": "A U-Net model that finds forest loss in the Peruvian Amazon from Sentinel-2 image pairs."
+      },
+      "terrain-rl": {
+        "title": "Route Planning on Real Terrain",
+        "category": "Reinforcement Learning",
+        "description": "An agent that learns low-slope routes on the Misti volcano using a 30 m elevation model."
+      },
+      "plate-detection": {
+        "title": "License Plate Detection and Reading",
+        "category": "Computer Vision",
+        "description": "YOLOv11 detects Peruvian license plates and OCR reads the characters."
+      },
+      "spark-emr": {
+        "title": "ML at Scale with Spark on AWS",
+        "category": "Big Data & ML",
+        "description": "Spark MLlib models on an AWS EMR cluster created with Terraform."
+      },
+      "savepics-ai": {
+        "title": "SavePics: Face Recognition in the Browser",
+        "category": "AI in the Browser",
+        "description": "Face detection and grouping by person that runs on the user's device, not on a server."
+      }
+    },
+    "viewDetails": "View Details"
+  },
   "projects": {
     "backToHome": "Back to Home",
     "challengeTitle": "The Challenge",
@@ -286,6 +319,78 @@
         "services": "Migration, Web Dev",
         "year": "2023",
         "website": "https://maramech.kendallcountyil.gov"
+      },
+      "deforestation": {
+        "title": "Deforestation Detection in Peru",
+        "description": "Deep learning model that maps forest loss in the Peruvian Amazon from Sentinel-2 imagery.",
+        "challenge": "Deforested areas cover only about 2.9% of the pixels in the images, so a model can reach high accuracy and still miss almost all forest loss. We needed a model that finds small clearings by comparing an image taken before with one taken after.",
+        "solution": "We built the full pipeline: Sentinel-2 download through STAC, mask creation from 9,910 official SERFOR polygons, and a U-Net with a ResNet34 encoder trained in PyTorch on 8 bands (red, green, blue and near-infrared, before and after). We tested 7 configurations, changing encoders, NDVI bands and loss functions, and built a web tool to review and correct the labels.",
+        "results": {
+          "1": "IoU 0.413 and F1 0.584 on the test set",
+          "2": "1,039 curated image pairs (727 train, 156 validation, 156 test)",
+          "3": "Public code and a web tool to review labels"
+        },
+        "client": "Cloud4Geo experiment, ready to adapt to your organization",
+        "services": "Deep Learning, Remote Sensing",
+        "year": "2026",
+        "website": "https://deforestacion-peru.cloud4geo.com/"
+      },
+      "terrain-rl": {
+        "title": "Route Planning on Real Terrain",
+        "description": "Reinforcement learning agent that finds low-slope routes on real terrain around the Misti volcano.",
+        "challenge": "Finding a walkable route on steep terrain is usually solved with fixed rules. We wanted an agent that learns the route by itself from elevation data, and we wanted to measure how close it gets to the optimal path.",
+        "solution": "We turned the Copernicus DEM (Digital Elevation Model) GLO-30 of the Misti volcano in Arequipa into a grid environment where steep slopes are penalized. We trained Q-learning, DQN (Deep Q-Network), Double DQN and REINFORCE agents in PyTorch and compared them with Dijkstra.",
+        "results": {
+          "1": "DQN reaches a fixed goal in 100% of test runs",
+          "2": "Routes only 7.1% more costly than the optimal Dijkstra path",
+          "3": "DQN beats REINFORCE: 100% vs 95% success"
+        },
+        "client": "Cloud4Geo experiment, ready to adapt to your organization",
+        "services": "Reinforcement Learning, Terrain Analysis",
+        "year": "2026"
+      },
+      "plate-detection": {
+        "title": "License Plate Detection and Reading",
+        "description": "YOLOv11 model that detects Peruvian license plates in photos and video, with OCR to read them.",
+        "challenge": "Reading plates in real traffic is hard: plates are small, tilted and often partly hidden. We needed a detector that works on photos and video of Peruvian streets.",
+        "solution": "We fine-tuned YOLOv11 on labeled images of Peruvian plates and added OCR (Optical Character Recognition) with EasyOCR and Fast Plate OCR to read the characters of each detected plate.",
+        "results": {
+          "1": "mAP50 of 0.986 on the validation set",
+          "2": "Precision 0.93 and recall 0.976",
+          "3": "Works on both images and video"
+        },
+        "client": "Cloud4Geo experiment, ready to adapt to your organization",
+        "services": "Object Detection, OCR",
+        "year": "2026"
+      },
+      "spark-emr": {
+        "title": "ML at Scale with Spark on AWS",
+        "description": "Spark MLlib models that predict food inspection results, running on an AWS EMR cluster built with Terraform.",
+        "challenge": "Training models on large tables needs a cluster, and setting one up by hand is slow and hard to repeat. We wanted a setup that anyone can create and destroy with one command.",
+        "solution": "We wrote Terraform code that creates an AWS EMR (Elastic MapReduce) cluster with Spark, JupyterHub and S3 storage. On top of it we trained Logistic Regression and Random Forest models with Spark MLlib on King County food inspection data.",
+        "results": {
+          "1": "Logistic Regression: AUC 0.953 and F1 0.876",
+          "2": "Random Forest: AUC 0.940 and F1 0.882",
+          "3": "Cluster and storage defined as code with Terraform"
+        },
+        "client": "Cloud4Geo experiment, ready to adapt to your organization",
+        "services": "Big Data, Cloud Infrastructure",
+        "year": "2026"
+      },
+      "savepics-ai": {
+        "title": "SavePics: Face Recognition in the Browser",
+        "description": "Face detection and grouping by person that runs fully in the browser, inside our photo product.",
+        "challenge": "SavePics users keep their photos in their own cloud account. Sending those photos to a server for face recognition would break that privacy promise.",
+        "solution": "We run the models on the user's device with ONNX Runtime Web inside a Web Worker. SCRFD detects faces, MobileFaceNet turns each face into a 512-dimension embedding, and cosine similarity groups the faces by person.",
+        "results": {
+          "1": "Photos never leave the device for analysis",
+          "2": "Faces are grouped by person automatically",
+          "3": "No GPU servers to pay for or maintain"
+        },
+        "client": "Cloud4Geo product",
+        "services": "Edge AI, Web Development",
+        "year": "2026",
+        "website": "https://savepics.app"
       }
     }
   },

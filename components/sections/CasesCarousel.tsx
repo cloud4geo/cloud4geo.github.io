@@ -6,55 +6,37 @@ import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
-const defaultLocale = 'en';
+// Detail pages are only generated under a locale prefix (/en/..., /es/...)
+const U = 'https://images.unsplash.com';
 
-// Helper to get localized path
-// With localePrefix: 'as-needed', English uses root path, Spanish uses /es/
-function getLocalizedPath(path: string, locale: string): string {
-  if (locale === defaultLocale) {
-    // English: serve at root without prefix
-    return path;
-  }
-  // Spanish: add /es/ prefix
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `/${locale}${cleanPath ? '/' + cleanPath : ''}`;
-}
+const caseItems = [
+  { slug: 'ohm', image: `${U}/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80` },
+  { slug: 'palestine', image: `${U}/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80` },
+  { slug: 'sandbox', image: `${U}/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80` },
+  { slug: 'kendall', image: `${U}/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80` },
+];
 
-export default function CasesCarousel() {
-  const t = useTranslations('cases');
+const aiItems = [
+  { slug: 'deforestation', image: '/images/ai/deforestation.jpg' },
+  { slug: 'terrain-rl', image: '/images/ai/terrain-rl.jpg' },
+  { slug: 'plate-detection', image: '/images/ai/plate-detection.jpg' },
+  { slug: 'spark-emr', image: `${U}/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80` },
+  { slug: 'savepics-ai', image: '/images/savepics.jpg' },
+];
+
+// variant 'cases' renders client success stories, 'ai' renders AI / machine learning projects
+export default function CasesCarousel({ variant = 'cases' }: { variant?: 'cases' | 'ai' }) {
+  const t = useTranslations(variant);
   const locale = useLocale();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isAi = variant === 'ai';
 
-  const cases = [
-    {
-      slug: 'ohm',
-      title: t('items.ohm.title'),
-      category: t('items.ohm.category'),
-      description: t('items.ohm.description'),
-      image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80',
-    },
-    {
-      slug: 'palestine',
-      title: t('items.palestine.title'),
-      category: t('items.palestine.category'),
-      description: t('items.palestine.description'),
-      image: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80',
-    },
-    {
-      slug: 'sandbox',
-      title: t('items.sandbox.title'),
-      category: t('items.sandbox.category'),
-      description: t('items.sandbox.description'),
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
-    },
-    {
-      slug: 'kendall',
-      title: t('items.kendall.title'),
-      category: t('items.kendall.category'),
-      description: t('items.kendall.description'),
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
-    }
-  ];
+  const cases = (isAi ? aiItems : caseItems).map((item) => ({
+    ...item,
+    title: t(`items.${item.slug}.title`),
+    category: t(`items.${item.slug}.category`),
+    description: t(`items.${item.slug}.description`),
+  }));
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -67,7 +49,7 @@ export default function CasesCarousel() {
   };
 
   return (
-    <section id="cases" className="bg-slate-950 py-24 text-white">
+    <section id={variant} className={`${isAi ? 'bg-slate-900' : 'bg-slate-950'} py-24 text-white`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 flex items-end justify-between">
           <div>
@@ -103,9 +85,9 @@ export default function CasesCarousel() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="min-w-[85vw] snap-center rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden md:min-w-[400px]"
+              className={`min-w-[85vw] snap-center rounded-2xl border border-slate-800 ${isAi ? 'bg-slate-950' : 'bg-slate-900'} overflow-hidden md:min-w-[400px]`}
             >
-              <Link href={getLocalizedPath(`/projects/${item.slug}`, locale)} className="block h-full transition-colors hover:border-slate-700">
+              <Link href={`/${locale}/projects/${item.slug}`} className="block h-full transition-colors hover:border-slate-700">
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply" />
                   <img 

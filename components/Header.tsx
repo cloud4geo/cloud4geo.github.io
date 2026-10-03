@@ -30,6 +30,7 @@ export default function Header() {
     { key: 'home', href: getLocalizedPath('/', locale) },
     { key: 'services', href: getLocalizedPath('/#services', locale) },
     { key: 'cases', href: getLocalizedPath('/#cases', locale) },
+    { key: 'ai', href: getLocalizedPath('/#ai', locale) },
     { key: 'process', href: getLocalizedPath('/#process', locale) },
     { key: 'products', href: getLocalizedPath('/#products', locale) },
     { key: 'contact', href: getLocalizedPath('/#contact', locale) },
@@ -52,12 +53,12 @@ export default function Header() {
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
-                className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                className="whitespace-nowrap text-gray-700 hover:text-primary-600 transition-colors font-medium"
               >
                 {t(item.key)}
               </Link>
@@ -65,7 +66,7 @@ export default function Header() {
             <LanguageSwitcher />
           </div>
 
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="lg:hidden flex items-center space-x-4">
             <LanguageSwitcher />
             <MobileMenu navItems={navItems} t={t} />
           </div>
