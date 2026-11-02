@@ -5,16 +5,31 @@ import { ArrowRight, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
+const SAT_TILES = [135, 136, 137].flatMap((y) =>
+  [71, 72, 73, 74].map(
+    (x) =>
+      `https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/GoogleMapsCompatible/8/${y}/${x}.jpg`
+  )
+);
+
 export default function HeroSection() {
   const t = useTranslations('hero');
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-slate-950 text-white">
-      {/* Background Map Placeholder */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <div className="h-full w-full bg-[url('https://cartodb-basemaps-a.global.ssl.fastly.net/dark_all/10/10/10.png')] bg-cover bg-center grayscale" />
-        {/* Actual MapLibre implementation will go here or be overlaid */}
+      {/* Background: Sentinel-2 cloudless 2016 tiles (Lima, Peru), CC BY 4.0 by EOX */}
+      <div className="absolute inset-0 z-0 opacity-50">
+        <div className="absolute left-1/2 top-1/2 grid aspect-[4/3] w-[max(100vw,133.34vh)] -translate-x-1/2 -translate-y-1/2 grid-cols-4">
+          {SAT_TILES.map((src) => (
+            <img key={src} src={src} alt="" className="block h-full w-full" loading="eager" />
+          ))}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+      </div>
+      <div className="absolute bottom-2 right-3 z-10 text-[10px] text-slate-500">
+        <a href="https://s2maps.eu" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300">
+          Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016)
+        </a>
       </div>
 
       <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4 md:px-6">
