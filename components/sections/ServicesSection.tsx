@@ -5,16 +5,7 @@ import { Database, Server, Map as MapIcon, ArrowRight } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
-const defaultLocale = 'en';
-
-// Helper to get localized path
-function getLocalizedPath(path: string, locale: string): string {
-  if (locale === defaultLocale) {
-    return path;
-  }
-  return `/${locale}${path}`;
-}
-
+// Detail pages are only generated under a locale prefix (/en/..., /es/...)
 export default function ServicesSection() {
   const t = useTranslations('services');
   const locale = useLocale();
@@ -70,7 +61,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <Link
               key={index}
-              href={getLocalizedPath(`/services/${service.slug}`, locale)}
+              href={`/${locale}/services/${service.slug}`}
               className="group relative block overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 p-8 transition-all hover:border-slate-700 hover:bg-slate-900"
             >
               <motion.div

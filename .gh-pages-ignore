@@ -1,0 +1,2 @@
+# This file ensures gh-pages includes all files from out/
+# Leave empty to include everything, or add patterns to exclude specific files

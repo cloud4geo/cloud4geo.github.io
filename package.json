@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && node scripts/create-index.js",
-    "deploy": "gh-pages -d out"
+    "deploy": "rm -rf out/ && npm run build && gh-pages -d out --dotfiles"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.25.0",

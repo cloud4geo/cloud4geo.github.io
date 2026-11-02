@@ -1,6 +1,6 @@
 import { locales } from '@/i18n';
 
-const validProjects = ['ohm', 'palestine', 'sandbox', 'kendall'];
+const validProjects = ['ohm', 'palestine', 'sandbox', 'kendall', 'deforestation', 'terrain-rl', 'plate-detection', 'spark-emr', 'savepics-ai'];
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];

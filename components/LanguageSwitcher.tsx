@@ -32,7 +32,8 @@ export default function LanguageSwitcher() {
       }
     }
     
-    router.push(newPath);
+    const hash = typeof window !== 'undefined' ? window.location.hash : '';
+    router.push(newPath + hash);
   };
 
   const languageNames: Record<string, string> = {
